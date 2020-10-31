@@ -30,47 +30,54 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Menu));
             this.btn_stock = new System.Windows.Forms.Button();
-            this.btn_orders = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_stock
             // 
-            this.btn_stock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_stock.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btn_stock.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_stock.FlatAppearance.BorderSize = 0;
             this.btn_stock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.btn_stock.Font = new System.Drawing.Font("Myanmar Square", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_stock.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_stock.Location = new System.Drawing.Point(48, 46);
+            this.btn_stock.Location = new System.Drawing.Point(59, 10);
+            this.btn_stock.Margin = new System.Windows.Forms.Padding(1);
             this.btn_stock.Name = "btn_stock";
-            this.btn_stock.Size = new System.Drawing.Size(229, 125);
+            this.btn_stock.Size = new System.Drawing.Size(343, 262);
             this.btn_stock.TabIndex = 0;
             this.btn_stock.Text = "Stock\r\nပစ္စည်းစာရင်း\r\n";
             this.btn_stock.UseVisualStyleBackColor = false;
             this.btn_stock.Click += new System.EventHandler(this.btn_stock_Click);
             // 
-            // btn_orders
+            // button2
             // 
-            this.btn_orders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btn_orders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_orders.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
-            this.btn_orders.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_orders.Location = new System.Drawing.Point(288, 45);
-            this.btn_orders.Name = "btn_orders";
-            this.btn_orders.Size = new System.Drawing.Size(229, 125);
-            this.btn_orders.TabIndex = 1;
-            this.btn_orders.Text = "Orders\r\nအမှာစာရင်း\r\n";
-            this.btn_orders.UseVisualStyleBackColor = false;
-            this.btn_orders.Click += new System.EventHandler(this.btn_orders_Click);
+            this.button2.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Myanmar Square", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(59, 279);
+            this.button2.Margin = new System.Windows.Forms.Padding(1);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(343, 172);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Sales \r\nအ‌ရောင်းအ၀ယ်စာရင်း";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_orders);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(92)))), ((int)(((byte)(125)))));
+            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_stock);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main_Menu";
-            this.Text = "Main_Menu";
+            this.Text = "Main Menu";
+            this.Load += new System.EventHandler(this.Main_Menu_Load);
             this.ResumeLayout(false);
 
         }
@@ -78,6 +85,6 @@
         #endregion
 
         private System.Windows.Forms.Button btn_stock;
-        private System.Windows.Forms.Button btn_orders;
+        private System.Windows.Forms.Button button2;
     }
 }

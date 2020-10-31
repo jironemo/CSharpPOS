@@ -18,10 +18,15 @@ namespace WindowsFormsApp1
 
         private void btn_stock_Click(object sender, EventArgs e)
         {
-            new Form1().Show();
+            new Tables().Show();
         }
 
         private void btn_orders_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Main_Menu_Load(object sender, EventArgs e)
         {
 
         }

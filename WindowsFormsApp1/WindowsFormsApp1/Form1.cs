@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -12,24 +11,32 @@ using System.Runtime.InteropServices;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class Tables : Form
+
     {
-        public Form1()
+
+
+        StockTable stock = new StockTable();
+        OrderTable orders = new OrderTable();
+        public Tables()
         {
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            Stock k = new Stock();
-            panel1.Controls.Add(k);
+            main_panel.Controls.Add(stock);
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
+            main_panel.Controls.Clear();
+            main_panel.Controls.Add(stock);
+        }
 
-            Stock k = new Stock();
-            panel1.Controls.Add(k);
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            main_panel.Controls.Clear();
+            main_panel.Controls.Add(orders);
         }
     }       
 }

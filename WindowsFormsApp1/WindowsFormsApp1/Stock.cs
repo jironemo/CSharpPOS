@@ -12,17 +12,22 @@ using System.Net.Http;
 namespace WindowsFormsApp1
 {
 
-    public partial class Stock : UserControl
+    public partial class StockTable : UserControl
     {
-        public Stock()
+        ControlCollection c;
+        public StockTable()
         {
             InitializeComponent();
+            
         }
 
         private void Stock_Load(object sender, EventArgs e)
         {
+            
             setDataGridViewStyle();
             loadStock();
+            c = panel1.Controls;
+            
         }
 
         /// <summary>
@@ -30,13 +35,15 @@ namespace WindowsFormsApp1
         /// </summary>
         private void setDataGridViewStyle()
         {
-            DataGridViewCellStyle n = new DataGridViewCellStyle();
-            n.Font = new Font("Myanmar Paoh Rosemarry", 16);
-            n.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.ColumnHeadersDefaultCellStyle = n;
-            dataGridView1.DefaultCellStyle = n;
-            dataGridView1.RowTemplate.Height = 40;
+            DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
+            cellStyle.Font = new Font("Myanmar Paoh Rosemarry", 16);
+            cellStyle.ForeColor = Color.White;
+            cellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            cellStyle.BackColor = Color.FromArgb(255,20, 39, 78);
+            view_table.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            view_table.ColumnHeadersDefaultCellStyle = cellStyle;
+            view_table.DefaultCellStyle = cellStyle;
+            view_table.RowTemplate.Height = 40;
         }
 
 
@@ -44,16 +51,14 @@ namespace WindowsFormsApp1
         /// loading the data 
         /// </summary>
         /// 
-        string con_str = "Data Source=shop.db;Cache=Shared;Mode=ReadWrite;";
-        private void loadStock()
+        public void loadStock()
         {
 
-            string command = "select * from Stock";
-            SqliteConnection con = new SqliteConnection(con_str);
-            con.Open();
+            string query = "select * from Stock";
+
             try
             {
-                SqliteCommand c = new SqliteCommand(command, con);
+                SqliteCommand c = Utilities.makeCommand(query);
                 SqliteDataReader read = c.ExecuteReader();
                 BindingList<Item> g = new BindingList<Item>();
                 Int32 v = 0;
@@ -62,12 +67,12 @@ namespace WindowsFormsApp1
                     try
                     {
                         v = read.GetInt32(0);
-                        var outputstream = new SqliteBlob(con, "Stock", "Image", v);
+                        var outputstream = new SqliteBlob(Utilities.getConnection(), "Stock", "Image", v);
                         Item k = new Item(v, read.GetString(1), read.GetString(2), read.GetFloat(3), Image.FromStream(outputstream));
                         g.Add(k);
-                        dataGridView1.DataSource = g;
+                        view_table.DataSource = g;
                         String[] headers = { "ပစ္စည်းအမှတ်", "ပစ္စည်းအမည်", "အလေးချိန်", "စျေးနှုန်း", "နမူနာ" };
-                        Utilities.setHeaders(dataGridView1, headers);
+                        Utilities.setHeaders(view_table, headers);
                         outputstream.Close();
                     }
                     catch (Exception ex)
@@ -76,6 +81,8 @@ namespace WindowsFormsApp1
                         MessageBox.Show("exStack:" + ex.StackTrace);
                     }
                 }
+
+                dataGridView1_CellClick(null, null);
             }
             catch (Exception e)
             {
@@ -83,8 +90,7 @@ namespace WindowsFormsApp1
             }
             finally
             {
-                con.Close();
-                con.Dispose();
+                Utilities.closeConnection();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
             }
@@ -98,7 +104,7 @@ namespace WindowsFormsApp1
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dataGridView1.SelectedRows[0];
+            DataGridViewRow row = view_table.SelectedRows[0];
             Item g = new Item(row);
             txt_id.Text = Convert.ToString(g.id);
             txt_name.Text = g.name;
@@ -112,24 +118,19 @@ namespace WindowsFormsApp1
             }
             txt_price.Text = Convert.ToString(g.price);
             pictureBox1.Image = g.img;
+            txt_name.Focus();
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            SqliteConnection con2 = new SqliteConnection(con_str);
-            con2.Open();
-            Image k = pictureBox1.Image;
-            ImageConverter g = new ImageConverter();
             try
             {
                 String name = txt_name.Text;
                 String weight = txt_kyat.Text + ","+txt_pel.Text+","+txt_yway.Text;
                 float price =(float) Convert.ToDouble(txt_price.Text);
-                ImageConverter cg = new ImageConverter();
-                Bitmap tmp = new Bitmap(k);
-                byte[] byteImg = (byte[])cg.ConvertTo(tmp.Clone(), typeof(byte[]));
-                string command =String.Format("Update stock set name = '{0}',weight ='{1}',price ='{2}',image = @pic where id = {3}", name, weight,(price), Convert.ToInt32(txt_id.Text));
-                SqliteCommand c = new SqliteCommand(command, con2);
+                byte[] byteImg = Utilities.ImgToByte(pictureBox1.Image);
+                string query =String.Format("Update stock set name = '{0}',weight ='{1}',price ='{2}',image = @pic where id = {3}", name, weight,(price), Convert.ToInt32(txt_id.Text));
+                SqliteCommand c = Utilities.makeCommand(query);
                 c.Parameters.AddWithValue("@pic", byteImg);
                 c.ExecuteNonQuery();
                 MessageBox.Show("Data Successfully updated");
@@ -141,8 +142,7 @@ namespace WindowsFormsApp1
             }
             finally
             {
-                con2.Close();
-                con2.Dispose();
+                Utilities.closeConnection();
                 loadStock();
             }
         }
@@ -153,5 +153,52 @@ namespace WindowsFormsApp1
                 pictureBox1.Image = Image.FromStream(openFileDialog1.OpenFile());
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+              String query = "Delete from stock where id = "+ txt_id.Text;
+               SqliteCommand cmd = Utilities.makeCommand(query);
+               try
+               {
+                if (MessageBox.Show("ဖျက်မည်", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK) {
+                    
+                    MessageBox.Show(cmd.ExecuteNonQuery().ToString());
+                    clearBoxes();
+                    loadStock();
+                }
+
+            }catch(Exception ex)
+               {
+                   MessageBox.Show("Unsuccessful Deletion\n" + ex.Message);
+
+               }
+            Utilities.closeConnection();
+            clearBoxes();
+        }
+
+        private void clearBoxes()
+        {
+            foreach(Control c in this.panel1.Controls)
+            {
+                if (c is TextBox)
+                {
+                    c.Text = String.Empty;
+                }
+                else if (c is PictureBox)
+                {
+                    ((PictureBox)c).Image = null;
+                }
+            }
+        }
+
+        private void btnAddStock_Click(object sender, EventArgs e)
+        {
+            foreach(Control con in c)
+            {
+                con.Visible = false;
+            }
+        }
+
+        
     }
 }
