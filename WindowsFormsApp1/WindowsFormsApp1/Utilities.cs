@@ -56,5 +56,26 @@ namespace WindowsFormsApp1
             byte[] byteImg = (byte[])cg.ConvertTo(tmp.Clone(), typeof(byte[]));
             return byteImg;
         }
+        public static void deleteData(String dbname, int id) {
+            String query = "Delete from "+dbname+" where id = " + id;
+            SqliteCommand cmd = Utilities.makeCommand(query);
+            try
+            {
+                if (MessageBox.Show("ဖျက်မည်", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+
+                    MessageBox.Show(cmd.ExecuteNonQuery().ToString());
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unsuccessful Deletion\n" + ex.Message);
+
+            }
+            Utilities.closeConnection();
+            
+        }
     }
 }

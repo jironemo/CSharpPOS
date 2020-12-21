@@ -67,6 +67,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>WindowsFormsApp1.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp, Version=5.15.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.1\lib\net472\FontAwesome.Sharp.dll</HintPath>
@@ -119,38 +122,81 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AddStock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddStock.Designer.cs">
+      <DependentUpon>AddStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="InfoViewer.Designer.cs">
+      <DependentUpon>InfoViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Item.cs" />
+    <Compile Include="ItemInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ItemInfo.Designer.cs">
+      <DependentUpon>ItemInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainShop\MainShop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainShop\MainShop.Designer.cs">
+      <DependentUpon>MainShop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainShop\Item.cs" />
     <Compile Include="Main Menu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main Menu.Designer.cs">
       <DependentUpon>Main Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderTable.cs">
+    <Compile Include="MainShop\Order.cs" />
+    <Compile Include="MainShop\OrderTable.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainShop\OrderTable.Designer.cs">
+      <DependentUpon>OrderTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stock.cs">
+    <Compile Include="MainShop\Sales\Sales.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Stock.Designer.cs">
+    <Compile Include="MainShop\Sales\Sales.Designer.cs">
+      <DependentUpon>Sales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings.Designer.cs">
+      <DependentUpon>Savings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainShop\Stock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainShop\Stock.Designer.cs">
       <DependentUpon>Stock.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AddStock.resx">
+      <DependentUpon>AddStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoViewer.resx">
+      <DependentUpon>InfoViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemInfo.resx">
+      <DependentUpon>ItemInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainShop\MainShop.resx">
+      <DependentUpon>MainShop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main Menu.resx">
       <DependentUpon>Main Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderTable.resx">
+    <EmbeddedResource Include="MainShop\OrderTable.resx">
       <DependentUpon>OrderTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -162,7 +208,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Stock.resx">
+    <EmbeddedResource Include="MainShop\Sales\Sales.resx">
+      <DependentUpon>Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings.resx">
+      <DependentUpon>Savings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainShop\Stock.resx">
       <DependentUpon>Stock.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

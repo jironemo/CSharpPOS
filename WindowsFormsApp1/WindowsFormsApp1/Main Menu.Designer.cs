@@ -39,14 +39,14 @@
             this.btn_stock.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_stock.FlatAppearance.BorderSize = 0;
             this.btn_stock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_stock.Font = new System.Drawing.Font("Myanmar Square", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_stock.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_stock.Location = new System.Drawing.Point(59, 10);
+            this.btn_stock.Location = new System.Drawing.Point(59, 21);
             this.btn_stock.Margin = new System.Windows.Forms.Padding(1);
             this.btn_stock.Name = "btn_stock";
-            this.btn_stock.Size = new System.Drawing.Size(343, 262);
+            this.btn_stock.Size = new System.Drawing.Size(343, 196);
             this.btn_stock.TabIndex = 0;
-            this.btn_stock.Text = "Stock\r\nပစ္စည်းစာရင်း\r\n";
+            this.btn_stock.Text = "Shop\r\nဆိုင်နှင့်ပတ်သတ်သော";
             this.btn_stock.UseVisualStyleBackColor = false;
             this.btn_stock.Click += new System.EventHandler(this.btn_stock_Click);
             // 
@@ -56,21 +56,23 @@
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Myanmar Square", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(59, 279);
+            this.button2.Location = new System.Drawing.Point(59, 247);
             this.button2.Margin = new System.Windows.Forms.Padding(1);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(343, 172);
+            this.button2.Size = new System.Drawing.Size(343, 204);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Sales \r\nအ‌ရောင်းအ၀ယ်စာရင်း";
+            this.button2.Text = "ATC Savings\r\nငွေစုစာရင်းများ";
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(92)))), ((int)(((byte)(125)))));
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_stock);
