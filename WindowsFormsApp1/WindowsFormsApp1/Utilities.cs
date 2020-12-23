@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.Sqlite;
+
 namespace WindowsFormsApp1
 {
     class Utilities
@@ -56,26 +57,68 @@ namespace WindowsFormsApp1
             byte[] byteImg = (byte[])cg.ConvertTo(tmp.Clone(), typeof(byte[]));
             return byteImg;
         }
+
+        internal static void UploadImage(PictureBox pictureBox1)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = Image.FromStream(openFileDialog1.OpenFile());
+            }
+        }
+
         public static void deleteData(String dbname, int id) {
             String query = "Delete from "+dbname+" where id = " + id;
-            SqliteCommand cmd = Utilities.makeCommand(query);
+            SqliteCommand cmd = makeCommand(query);
             try
             {
                 if (MessageBox.Show("ဖျက်မည်", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
 
                     MessageBox.Show(cmd.ExecuteNonQuery().ToString());
-
                 }
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Unsuccessful Deletion\n" + ex.Message);
-
+                Console.WriteLine(ex.StackTrace);
+                Console.Read();
             }
-            Utilities.closeConnection();
+            closeConnection();
             
+        }
+        public static void setDataGridViewStyle(DataGridView gv)
+        {
+            DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
+            cellStyle.Font = new Font("Myanmar Paoh Rosemarry", 16);
+            cellStyle.ForeColor = Color.White;
+            cellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            cellStyle.BackColor = Color.FromArgb(255, 20, 39, 78);
+            gv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gv.ColumnHeadersDefaultCellStyle = cellStyle;
+            gv.DefaultCellStyle = cellStyle;
+            gv.RowTemplate.Height = 40;
+        }
+
+        internal static void clearBoxes(Control c)
+        {
+            foreach (Control ctrl in c.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                 if (ctrl.Enabled == true)
+                        ctrl.Text = String.Empty;
+                }
+                else if (ctrl is PictureBox)
+                {
+                    ((PictureBox)ctrl).Image = null;
+                }
+                else if (ctrl is DateTimePicker)
+                {
+                    ((DateTimePicker)ctrl).Value = DateTime.Now;
+                }
+            }
         }
     }
 }

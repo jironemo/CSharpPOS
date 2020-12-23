@@ -27,6 +27,7 @@ namespace WindowsFormsApp1
             {
                 g.Visible = true;
             }
+            Utilities.clearBoxes(this);
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -35,15 +36,24 @@ namespace WindowsFormsApp1
             Item k = new Item(Utilities.getLatestId("Stock"), txt_name.Text, weight, float.Parse(txt_price.Text), pictureBox1.Image);
             k.AddToDB();
             ((StockTable)this.Parent.Parent).loadStock();
+            foreach(Control c in this.Controls)
+            {
+                if (c is TextBox)
+                    c.Text = String.Empty;
+                else if (c is PictureBox)
+                    ((PictureBox)c).Image = null;
+            }
+            btnCancel_Click(sender,e);
         }
 
         private void btnUploadImg_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox1.Image = Image.FromStream(openFileDialog1.OpenFile());
-            }
+            Utilities.UploadImage(pictureBox1);
+        }
+
+        private void AddStock_Load(object sender, EventArgs e)
+        {
+            txt_id.Text = Utilities.getLatestId("Stock").ToString();
         }
     }
 }

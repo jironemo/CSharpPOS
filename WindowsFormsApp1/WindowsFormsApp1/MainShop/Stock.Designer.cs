@@ -313,7 +313,6 @@
             this.view_table.Size = new System.Drawing.Size(700, 600);
             this.view_table.TabIndex = 0;
             this.view_table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.view_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.view_table_CellContentClick);
             // 
             // openFileDialog1
             // 

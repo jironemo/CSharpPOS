@@ -14,7 +14,6 @@ namespace WindowsFormsApp1
 
     public partial class StockTable : UserControl
     {
-
         AddStock ast = new AddStock();
         public StockTable()
         {
@@ -25,7 +24,7 @@ namespace WindowsFormsApp1
         private void Stock_Load(object sender, EventArgs e)
         {
             
-            setDataGridViewStyle();
+            Utilities.setDataGridViewStyle(view_table);
             loadStock();
             
         }
@@ -33,18 +32,7 @@ namespace WindowsFormsApp1
         /// <summary>
         /// setting the style of the datagirdview
         /// </summary>
-        private void setDataGridViewStyle()
-        {
-            DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
-            cellStyle.Font = new Font("Myanmar Paoh Rosemarry", 16);
-            cellStyle.ForeColor = Color.White;
-            cellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            cellStyle.BackColor = Color.FromArgb(255,20, 39, 78);
-            view_table.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            view_table.ColumnHeadersDefaultCellStyle = cellStyle;
-            view_table.DefaultCellStyle = cellStyle;
-            view_table.RowTemplate.Height = 40;
-        }
+       
 
 
         /// <summary>
@@ -145,32 +133,14 @@ namespace WindowsFormsApp1
         }
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox1.Image = Image.FromStream(openFileDialog1.OpenFile());
-            }
+            Utilities.UploadImage(pictureBox1);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            Utilities.deleteData("Stock",Int32.Parse(txt_id.Text));
+            Utilities.deleteData("Stock", Int32.Parse(txt_id.Text));
             loadStock();
-            clearBoxes();
-        }
-
-        private void clearBoxes()
-        {
-            foreach(Control c in this.panel1.Controls)
-            {
-                if (c is TextBox)
-                {
-                    c.Text = String.Empty;
-                }
-                else if (c is PictureBox)
-                {
-                    ((PictureBox)c).Image = null;
-                }
-            }
+            Utilities.clearBoxes(panel1);
         }
         private void iconButton1_Click_1(object sender, EventArgs e)
         {
@@ -180,11 +150,6 @@ namespace WindowsFormsApp1
                 c.Visible = false;
             }
             panel1.Controls.Add(ast);
-        }
-
-        private void view_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

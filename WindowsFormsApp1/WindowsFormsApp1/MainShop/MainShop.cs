@@ -12,18 +12,19 @@ using Microsoft.Data.Sqlite;
 
 namespace WindowsFormsApp1
 {
-    public partial class Tables : Form
+    public partial class MainShop : Form
 
     {
         StockTable stock = new StockTable();
         OrderTable orders = new OrderTable();
         Sales sales = new Sales();
-        public Tables()
+        public MainShop()
         {
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            main_panel.Controls.Clear();
             main_panel.Controls.Add(stock);
         }
 

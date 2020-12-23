@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.Sqlite;
+using Tulpep.NotificationWindow;
 
 namespace WindowsFormsApp1
 {
@@ -17,11 +18,12 @@ namespace WindowsFormsApp1
         public Sales()
         {
             InitializeComponent();
-            setDataGridViewStyle();
+            Utilities.setDataGridViewStyle(sales_table);
             getSales();
         }
-        private void getSales()
+        public void getSales()
         {
+
             BindingList<Object> sales = new BindingList<Object>();
             String query  = "select Sale.id,Stock.Name,Customer.Cus_name,Sale.DateOfSale,Stock.id from Sale,Stock,Customer where Sale.Item_ID = Stock.ID and Sale.Cus_ID = customer.id";
             SqliteCommand cmd = Utilities.makeCommand(query);
@@ -33,20 +35,13 @@ namespace WindowsFormsApp1
                 sales.Add(v);
                 blob.Close();
             }
+            read.Close();
+            Utilities.closeConnection();
             sales_table.DataSource = sales;
         }
-        private void setDataGridViewStyle()
-        {
-            DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
-            cellStyle.Font = new Font("Myanmar Text", 16);
-            cellStyle.ForeColor = Color.White;
-            cellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            cellStyle.BackColor = Color.FromArgb(255, 20, 39, 78);
-            sales_table.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            sales_table.ColumnHeadersDefaultCellStyle = cellStyle;
-            sales_table.DefaultCellStyle = cellStyle;
-            sales_table.RowTemplate.Height = 40;
-        }
+
+
+
 
         private void sales_table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -61,35 +56,34 @@ namespace WindowsFormsApp1
             pictureBox1.Image = (Image)cells[4].Value;
         }
 
-        private void clearAllBoxes()
-        {
-            foreach(Control c in this.panel1.Controls)
-            {
-                if (c is TextBox )
-                {
-                    ((TextBox)c).Text = String.Empty;
-                }
-                else if (c is PictureBox)
-                {
-                    ((PictureBox)c).Image = null;
-                }
-                else if(c is DateTimePicker)
-                {
-                    ((DateTimePicker)c).Value = DateTime.Now;
-                }
-            }
-        }
+
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            String query = "Select item_id from Sale where ID = " + txt_vouch_num.Text;
-            InfoViewer g = new InfoViewer();
-            SqliteCommand cmd = Utilities.makeCommand(query);
-            Int32 id = Convert.ToInt32(cmd.ExecuteScalar());
-            g.Controls.Clear();
-            g.Controls.Add(new ItemInfo(id));
-            g.Show();
+            try
+            {
 
+                String query = "Select item_id,cus_id from Sale where ID = " + txt_vouch_num.Text;
+                InfoViewer g = new InfoViewer(this);
+                SqliteCommand cmd = Utilities.makeCommand(query);
+                SqliteDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                Int32 id = Convert.ToInt32(reader.GetInt32(0));
+                Int32 cusid = Convert.ToInt32(reader.GetInt32(1));
+                g.Controls.Clear();
+                g.Controls.Add(new ItemInfo(id, Convert.ToInt32(txt_vouch_num.Text), cusid));
+                g.Show();
+                reader.Close();
+                Utilities.closeConnection();
+            }
+            catch (Exception)
+            {
+                PopupNotifier g = new PopupNotifier();
+                g.TitleText = "Error";
+                g.ContentText = "Error Showing Result";
+                g.Popup();
+                
+            }
         }
     }
 }
