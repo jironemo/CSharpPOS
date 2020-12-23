@@ -207,6 +207,9 @@
     <EmbeddedResource Include="MainShop\OrderTable.resx">
       <DependentUpon>OrderTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewSale.resx">
+      <DependentUpon>NewSale.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
