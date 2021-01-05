@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WindowsFormsApp1
 {
@@ -13,10 +14,29 @@ namespace WindowsFormsApp1
         /// </summary>
         [STAThread]
         static void Main()
-        {
+      {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            try
+            {
+
+                string directory = @"C:\my\";
+                string filedir = directory + "shop.db";
+                if (Directory.Exists(directory))
+                {
+
+                }
+                else
+                {
+                    Directory.CreateDirectory(directory);
+                    File.Copy("shop.db", filedir);
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("error"+ e.Message);
+            }
+            Application.Run(new Main_Menu());
         }
     }
 }
