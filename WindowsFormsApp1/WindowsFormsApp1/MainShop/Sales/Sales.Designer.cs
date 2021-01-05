@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.sales_table = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lbl_name = new System.Windows.Forms.Label();
@@ -38,13 +38,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txt_item_name = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dt_saledate = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_dueDate = new System.Windows.Forms.TextBox();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.txt_vouch_num = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.sales_table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -59,33 +60,32 @@
             this.sales_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.sales_table.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(39)))), ((int)(((byte)(78)))));
             this.sales_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Myanmar Text", 16F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.sales_table.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Myanmar Text", 16F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.sales_table.DefaultCellStyle = dataGridViewCellStyle10;
             this.sales_table.EnableHeadersVisualStyles = false;
             this.sales_table.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(177)))), ((int)(((byte)(149)))));
             this.sales_table.Location = new System.Drawing.Point(8, 15);
             this.sales_table.MultiSelect = false;
             this.sales_table.Name = "sales_table";
             this.sales_table.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Myanmar Text", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.sales_table.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Myanmar Text", 10F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.sales_table.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.sales_table.RowHeadersVisible = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            this.sales_table.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            this.sales_table.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.sales_table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.sales_table.Size = new System.Drawing.Size(694, 600);
             this.sales_table.TabIndex = 7;
@@ -102,7 +102,7 @@
             this.lbl_name.AutoSize = true;
             this.lbl_name.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Bold);
             this.lbl_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_name.Location = new System.Drawing.Point(12, 158);
+            this.lbl_name.Location = new System.Drawing.Point(8, 247);
             this.lbl_name.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_name.Name = "lbl_name";
             this.lbl_name.Size = new System.Drawing.Size(88, 25);
@@ -112,7 +112,7 @@
             // txt_cus_name
             // 
             this.txt_cus_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cus_name.Location = new System.Drawing.Point(16, 187);
+            this.txt_cus_name.Location = new System.Drawing.Point(12, 276);
             this.txt_cus_name.Name = "txt_cus_name";
             this.txt_cus_name.Size = new System.Drawing.Size(250, 26);
             this.txt_cus_name.TabIndex = 1;
@@ -122,7 +122,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(12, 68);
+            this.label6.Location = new System.Drawing.Point(8, 157);
             this.label6.Margin = new System.Windows.Forms.Padding(5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 25);
@@ -131,9 +131,8 @@
             // 
             // txt_item_name
             // 
-            this.txt_item_name.Enabled = false;
             this.txt_item_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_item_name.Location = new System.Drawing.Point(17, 96);
+            this.txt_item_name.Location = new System.Drawing.Point(13, 185);
             this.txt_item_name.Name = "txt_item_name";
             this.txt_item_name.Size = new System.Drawing.Size(249, 26);
             this.txt_item_name.TabIndex = 1;
@@ -141,27 +140,20 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(72)))), ((int)(((byte)(103)))));
-            this.pictureBox1.Location = new System.Drawing.Point(18, 308);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 420);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(252, 263);
+            this.pictureBox1.Size = new System.Drawing.Size(252, 162);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
-            // 
-            // dt_saledate
-            // 
-            this.dt_saledate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dt_saledate.Location = new System.Drawing.Point(17, 282);
-            this.dt_saledate.Name = "dt_saledate";
-            this.dt_saledate.Size = new System.Drawing.Size(252, 20);
-            this.dt_saledate.TabIndex = 15;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(13, 254);
+            this.label7.Location = new System.Drawing.Point(9, 343);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(105, 25);
             this.label7.TabIndex = 16;
@@ -169,12 +161,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.iconButton3);
             this.panel1.Controls.Add(this.iconButton2);
             this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.txt_vouch_num);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.dt_saledate);
+            this.panel1.Controls.Add(this.txt_dueDate);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.txt_item_name);
             this.panel1.Controls.Add(this.label6);
@@ -184,6 +177,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(280, 600);
             this.panel1.TabIndex = 8;
+            // 
+            // txt_dueDate
+            // 
+            this.txt_dueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_dueDate.Location = new System.Drawing.Point(11, 376);
+            this.txt_dueDate.Name = "txt_dueDate";
+            this.txt_dueDate.Size = new System.Drawing.Size(250, 26);
+            this.txt_dueDate.TabIndex = 21;
             // 
             // iconButton2
             // 
@@ -198,7 +199,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.White;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 20;
-            this.iconButton2.Location = new System.Drawing.Point(175, 216);
+            this.iconButton2.Location = new System.Drawing.Point(171, 305);
             this.iconButton2.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Rotation = 0D;
@@ -222,7 +223,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.White;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 20;
-            this.iconButton1.Location = new System.Drawing.Point(175, 125);
+            this.iconButton1.Location = new System.Drawing.Point(171, 214);
             this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Rotation = 0D;
@@ -238,7 +239,7 @@
             // 
             this.txt_vouch_num.Enabled = false;
             this.txt_vouch_num.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_vouch_num.Location = new System.Drawing.Point(16, 34);
+            this.txt_vouch_num.Location = new System.Drawing.Point(12, 123);
             this.txt_vouch_num.Name = "txt_vouch_num";
             this.txt_vouch_num.Size = new System.Drawing.Size(252, 26);
             this.txt_vouch_num.TabIndex = 17;
@@ -248,18 +249,46 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(12, 7);
+            this.label8.Location = new System.Drawing.Point(8, 90);
             this.label8.Margin = new System.Windows.Forms.Padding(5);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(108, 25);
             this.label8.TabIndex = 18;
             this.label8.Text = "ဘောက်ချာနံပါတ်";
             // 
+            // iconButton3
+            // 
+            this.iconButton3.BackColor = System.Drawing.Color.Firebrick;
+            this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.iconButton3.FlatAppearance.BorderSize = 0;
+            this.iconButton3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Maroon;
+            this.iconButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.iconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.iconButton3.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold);
+            this.iconButton3.ForeColor = System.Drawing.Color.White;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.iconButton3.IconColor = System.Drawing.Color.White;
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.IconSize = 32;
+            this.iconButton3.Location = new System.Drawing.Point(0, 0);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Rotation = 0D;
+            this.iconButton3.Size = new System.Drawing.Size(280, 60);
+            this.iconButton3.TabIndex = 9;
+            this.iconButton3.Text = "Add New Sale";
+            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton3.UseCompatibleTextRendering = true;
+            this.iconButton3.UseVisualStyleBackColor = false;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.sales_table);
             this.Controls.Add(this.panel1);
             this.Name = "Sales";
@@ -280,12 +309,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_item_name;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker dt_saledate;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txt_vouch_num;
         private System.Windows.Forms.Label label8;
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.TextBox txt_dueDate;
+        private FontAwesome.Sharp.IconButton iconButton3;
     }
 }

@@ -45,5 +45,10 @@ namespace WindowsFormsApp1
             main_panel.Controls.Clear();
             main_panel.Controls.Add(sales);
         }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+
+        }
     }       
 }

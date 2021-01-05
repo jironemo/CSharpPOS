@@ -47,7 +47,6 @@ namespace WindowsFormsApp1
             string query = String.Format("INSERT INTO Stock (name,weight,price,image,stock_Status) VALUES ('{0}','{1}','{2}',@pic,'stock')", this.name, this.weight, this.price);
             SqliteCommand cmd = Utilities.makeCommand(query);
             cmd.Parameters.AddWithValue("@pic", Utilities.ImgToByte(this.img));
-            MessageBox.Show(cmd.ExecuteNonQuery().ToString());
             Utilities.closeConnection();
 
         }

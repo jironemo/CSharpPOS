@@ -14,13 +14,16 @@ namespace WindowsFormsApp1
         static SqliteConnection con;
         static SqliteCommand cmd;
 
-        static string con_str = "Data Source=shop.db;Cache=Shared;Mode=ReadWrite;";
-
+        static string con_str = "Data Source=c:/my/shop.db;Cache=Shared;Mode=ReadWrite;";
+        //static string con_str = "Data Source=shop.db;Cache=Shared;Mode=ReadWrite;";
         internal static Int32 getLatestId(string v)
         {
-            int id = 0;
+            Int32 id = 0;
             SqliteCommand c = makeCommand("SELECT MAX(id)+1 from " + v +";");
-            id = Convert.ToInt32(c.ExecuteScalar());
+            if(c.ExecuteScalar() == DBNull.Value)
+                id = 0;
+            else id = Convert.ToInt32(c.ExecuteScalar());
+
             return id;
         }
 
@@ -72,20 +75,13 @@ namespace WindowsFormsApp1
             SqliteCommand cmd = makeCommand(query);
             try
             {
-                if (MessageBox.Show("ဖျက်မည်", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {
-
-                    MessageBox.Show(cmd.ExecuteNonQuery().ToString());
-                }
-
+                cmd.ExecuteNonQuery().ToString();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show("Unsuccessful Deletion\n" + ex.Message);
-                Console.WriteLine(ex.StackTrace);
-                Console.Read();
+                MessageBox.Show(e.Message);
             }
-            closeConnection();
+             closeConnection();
             
         }
         public static void setDataGridViewStyle(DataGridView gv)

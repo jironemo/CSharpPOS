@@ -33,11 +33,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btn_add_sale = new FontAwesome.Sharp.IconButton();
             this.btn_add_buyin = new FontAwesome.Sharp.IconButton();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btn_stock
             // 
-            this.btn_stock.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btn_stock.BackColor = System.Drawing.Color.MediumBlue;
             this.btn_stock.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_stock.FlatAppearance.BorderSize = 0;
             this.btn_stock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -54,7 +55,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button2.BackColor = System.Drawing.Color.MediumBlue;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -68,6 +69,7 @@
             this.button2.Text = "ATC Savings\r\nငွေစုစာရင်းများ";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_add_sale
@@ -100,7 +102,7 @@
             this.btn_add_buyin.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btn_add_buyin.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_buyin.ForeColor = System.Drawing.Color.White;
-            this.btn_add_buyin.IconChar = FontAwesome.Sharp.IconChar.CartPlus;
+            this.btn_add_buyin.IconChar = FontAwesome.Sharp.IconChar.Receipt;
             this.btn_add_buyin.IconColor = System.Drawing.Color.White;
             this.btn_add_buyin.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_add_buyin.IconSize = 48;
@@ -109,16 +111,27 @@
             this.btn_add_buyin.Rotation = 0D;
             this.btn_add_buyin.Size = new System.Drawing.Size(270, 95);
             this.btn_add_buyin.TabIndex = 3;
-            this.btn_add_buyin.Text = "ဝယ်ယူစာရင်းအသစ်ထည့်ရန်";
+            this.btn_add_buyin.Text = "အမှာအသစ်ထည့်ရန်";
             this.btn_add_buyin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_add_buyin.UseVisualStyleBackColor = false;
+            this.btn_add_buyin.Click += new System.EventHandler(this.btn_add_buyin_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(406, 234);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(270, 199);
+            this.listBox1.TabIndex = 4;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(72)))), ((int)(((byte)(103)))));
             this.ClientSize = new System.Drawing.Size(704, 461);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btn_add_buyin);
             this.Controls.Add(this.btn_add_sale);
             this.Controls.Add(this.button2);
@@ -138,5 +151,6 @@
         private System.Windows.Forms.Button button2;
         private FontAwesome.Sharp.IconButton btn_add_sale;
         private FontAwesome.Sharp.IconButton btn_add_buyin;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

@@ -144,12 +144,12 @@ namespace WindowsFormsApp1
         }
         private void iconButton1_Click_1(object sender, EventArgs e)
         {
-            panel1.Controls.Remove(ast);
-            foreach(Control c in panel1.Controls)
-            {
-                c.Visible = false;
-            }
-            panel1.Controls.Add(ast);
+
+            Form s = new Form();
+            s.BackColor = this.Parent.BackColor;
+            s.Controls.Add(ast);
+            s.Size = new Size(ast.Size.Width + 10 ,ast.Size.Height+30);
+            s.Show();
         }
     }
 }

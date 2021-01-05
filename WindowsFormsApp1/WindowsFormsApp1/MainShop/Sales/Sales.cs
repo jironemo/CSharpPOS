@@ -45,14 +45,13 @@ namespace WindowsFormsApp1
 
         private void sales_table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            TextBox[] textBoxes = { txt_vouch_num,txt_item_name,txt_cus_name};
             DataGridViewRow row = sales_table.SelectedRows[0];
             DataGridViewCellCollection cells = row.Cells;
             txt_vouch_num.Text = Convert.ToInt32(cells[0].Value).ToString();
 
             txt_item_name.Text = cells[1].Value.ToString();
             txt_cus_name.Text = cells[2].Value.ToString();
-            dt_saledate.Value = Convert.ToDateTime(cells[3].Value);
+            txt_dueDate.Text = Convert.ToDateTime(cells[3].Value).ToString();
             pictureBox1.Image = (Image)cells[4].Value;
         }
 
@@ -64,7 +63,7 @@ namespace WindowsFormsApp1
             {
 
                 String query = "Select item_id,cus_id from Sale where ID = " + txt_vouch_num.Text;
-                InfoViewer g = new InfoViewer(this);
+                InfoViewer g = new InfoViewer();
                 SqliteCommand cmd = Utilities.makeCommand(query);
                 SqliteDataReader reader = cmd.ExecuteReader();
                 reader.Read();
@@ -78,12 +77,30 @@ namespace WindowsFormsApp1
             }
             catch (Exception)
             {
-                PopupNotifier g = new PopupNotifier();
-                g.TitleText = "Error";
-                g.ContentText = "Error Showing Result";
+                PopupNotifier g = new PopupNotifier
+                {
+                    TitleText = "Error",
+                    ContentText = "Error Showing Result"
+                };
                 g.Popup();
                 
             }
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            NewSale newSale = new NewSale();
+            newSale.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public static implicit operator Sales(Form v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

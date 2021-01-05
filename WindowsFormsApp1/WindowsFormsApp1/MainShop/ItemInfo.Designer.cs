@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnUpdate = new FontAwesome.Sharp.IconButton();
-            this.btnUploadImg = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,60 +42,9 @@
             this.txt_name = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
-            this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(86)))), ((int)(((byte)(124)))));
-            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.btnUpdate.IconColor = System.Drawing.Color.White;
-            this.btnUpdate.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUpdate.IconSize = 32;
-            this.btnUpdate.Location = new System.Drawing.Point(16, 481);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(0);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Rotation = 0D;
-            this.btnUpdate.Size = new System.Drawing.Size(113, 38);
-            this.btnUpdate.TabIndex = 16;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUpdate.UseCompatibleTextRendering = true;
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // btnUploadImg
-            // 
-            this.btnUploadImg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(64)))), ((int)(((byte)(161)))));
-            this.btnUploadImg.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnUploadImg.FlatAppearance.BorderSize = 0;
-            this.btnUploadImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUploadImg.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnUploadImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUploadImg.ForeColor = System.Drawing.Color.White;
-            this.btnUploadImg.IconChar = FontAwesome.Sharp.IconChar.Images;
-            this.btnUploadImg.IconColor = System.Drawing.Color.White;
-            this.btnUploadImg.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUploadImg.IconSize = 32;
-            this.btnUploadImg.Location = new System.Drawing.Point(16, 438);
-            this.btnUploadImg.Margin = new System.Windows.Forms.Padding(0);
-            this.btnUploadImg.Name = "btnUploadImg";
-            this.btnUploadImg.Rotation = 0D;
-            this.btnUploadImg.Size = new System.Drawing.Size(252, 38);
-            this.btnUploadImg.TabIndex = 17;
-            this.btnUploadImg.Text = "Upload New Image";
-            this.btnUploadImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUploadImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUploadImg.UseCompatibleTextRendering = true;
-            this.btnUploadImg.UseVisualStyleBackColor = false;
-            this.btnUploadImg.Click += new System.EventHandler(this.btnUploadImg_Click);
             // 
             // pictureBox1
             // 
@@ -238,31 +185,6 @@
             this.lbl_name.TabIndex = 19;
             this.lbl_name.Text = "ပစ္စည်းအမည်";
             // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(32)))), ((int)(((byte)(49)))));
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.btnDelete.IconColor = System.Drawing.Color.White;
-            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDelete.IconSize = 32;
-            this.btnDelete.Location = new System.Drawing.Point(155, 481);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Rotation = 0D;
-            this.btnDelete.Size = new System.Drawing.Size(113, 38);
-            this.btnDelete.TabIndex = 15;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDelete.UseCompatibleTextRendering = true;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -271,10 +193,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(72)))), ((int)(((byte)(103)))));
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnUploadImg);
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txt_id);
             this.Controls.Add(this.label6);
@@ -298,8 +217,6 @@
         }
 
         #endregion
-        private FontAwesome.Sharp.IconButton btnUpdate;
-        private FontAwesome.Sharp.IconButton btnUploadImg;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.Label label6;
@@ -314,7 +231,6 @@
         private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_name;
-        private FontAwesome.Sharp.IconButton btnDelete;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

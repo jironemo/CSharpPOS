@@ -37,8 +37,9 @@
             // 
             // btn_stock
             // 
-            this.btn_stock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btn_stock.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_stock.BackColor = System.Drawing.Color.Green;
+            this.btn_stock.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_stock.FlatAppearance.BorderSize = 0;
             this.btn_stock.FlatAppearance.CheckedBackColor = System.Drawing.Color.Maroon;
             this.btn_stock.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btn_stock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
@@ -73,8 +74,9 @@
             // 
             // iconButton2
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.iconButton2.BackColor = System.Drawing.Color.Green;
+            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
             this.iconButton2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Maroon;
             this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
@@ -101,8 +103,9 @@
             // 
             // iconButton1
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.iconButton1.BackColor = System.Drawing.Color.Green;
+            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Maroon;
             this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
@@ -119,7 +122,7 @@
             this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Rotation = 0D;
-            this.iconButton1.Size = new System.Drawing.Size(100, 38);
+            this.iconButton1.Size = new System.Drawing.Size(86, 38);
             this.iconButton1.TabIndex = 7;
             this.iconButton1.Text = "Sales";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -127,7 +130,7 @@
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
             // 
-            // Tables
+            // MainShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -138,7 +141,7 @@
             this.Controls.Add(this.btn_stock);
             this.Controls.Add(this.main_panel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Tables";
+            this.Name = "MainShop";
             this.Text = "MainShop";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

@@ -37,30 +37,12 @@ namespace WindowsFormsApp1
             txt_kyat.Text = weight[0];
             txt_pel.Text = weight[1];
             txt_yway.Text = weight[2];
-            txt_price.Text = reader.GetValue(3).ToString();
+            txt_price.Text = reader.GetValue(3).ToString(); 
             SqliteBlob img = new SqliteBlob(Utilities.getConnection(), "Stock", "Image", Convert.ToInt32(reader.GetValue(0)));
             pictureBox1.Image = Image.FromStream(img);
             img.Close();
             reader.Close();
             Utilities.closeConnection();
-        }
-
-        private void btnUploadImg_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox1.Image = Image.FromStream(openFileDialog1.OpenFile());
-            }
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            Utilities.deleteData("Sale", vouchid);
-            Utilities.deleteData("Stock", id);
-            Utilities.deleteData("Customer", cusid);
-            ((Form)this.Parent).Close();
-        }
-
-        
+        }  
     }
 }

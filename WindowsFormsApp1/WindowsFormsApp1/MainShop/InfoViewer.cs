@@ -13,16 +13,20 @@ namespace WindowsFormsApp1
     public partial class InfoViewer : Form
     {
 
-        Sales sales = null;
-        public InfoViewer(Sales sales)
+        public InfoViewer()
         {
             InitializeComponent();
-            this.sales = sales;
+
         }
 
         private void InfoViewer_FormClosed(object sender, FormClosedEventArgs e)
         {
-            sales.getSales();
+
+        }
+
+        private void InfoViewer_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
